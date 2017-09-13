@@ -1,0 +1,37 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'flash.html' %}
+{% if subcategories %}
+
+    <nav class="nav">
+        {% for s in subcategories %}
+        <a class="breadcrumb-item text-secondary" href="{{url_for('gallery', cat=category.name, subcat=s.name)}}">{{s.fullname}}</></a>
+        {% endfor %}
+    </nav>
+{% else %}
+    <nav class="nav">
+        <a class="breadcrumb-item text-secondary" href="{{url_for('gallery', cat=category.name)}}">{{category.fullname}}</></a>    
+    </nav>
+{% endif %}
+<div class="my-2">
+    <div class="row">
+        {% for p in photos %}
+        {% if p.featured %}
+        <div class="col-12 my-3">
+            <a href="{{url_for('static', filename='photo/full/')}}{{p.filename}}" data-lightbox="lightbox">
+                <img class="img-fluid" src="{{url_for('static', filename='photo/thumb/featured/')}}{{p.filename}}" />
+            </a>
+        </div>
+        {% else %}
+        <div class="col-sm-12 col-md-6 col-lg-4 my-3">
+            <a href="{{url_for('static', filename='photo/full/')}}{{p.filename}}" data-lightbox="lightbox">
+                <img class="img-fluid" src="{{url_for('static', filename='photo/thumb/')}}{{p.filename}}" />
+            </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

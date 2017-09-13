@@ -1,0 +1,71 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'flash.html' %}
+
+
+{% include 'event.html' %}
+
+
+<div class="well my-5">
+
+    <form class="form-horizontal" action="" method="post" name="contact-form">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Kontaktní údaje</legend>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="email">Email:</label>
+                <div class="col-sm-5">{{ form.email(class="form-control", placeholder="Email") }}</div>
+                {% for error in form.email.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="name">Jméno:</label>
+                <div class="col-sm-5">{{ form.name(class="form-control", placeholder="Jméno") }}</div>
+                {% for error in form.name.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="surname">Příjmení:</label>
+                <div class="col-sm-5">{{ form.surname(class="form-control", placeholder="Příjmení") }}</div>
+                {% for error in form.surname.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="telephone">Telefon:</label>
+                <div class="col-sm-5">{{ form.telephone(class="form-control", placeholder="Telefon") }}</div>
+                {% for error in form.telephone.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="message">Vaše zpráva fotografce:</label>
+                <div class="col-sm-8">{{ form.message(class="form-control", placeholder="Napište nám") }}</div>
+                {% for error in form.message.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="control-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7 controls">
+                    <label for="agree">
+                    {{form.agree}}
+                    Souhlasím s podmínkami
+                    </label>
+                    {% for error in form.agree.errors %}
+                    <span class="text-error">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+                <div class="col-sm-2 controls">
+                    <input class="btn btn-light" type="submit" value="Objednat">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

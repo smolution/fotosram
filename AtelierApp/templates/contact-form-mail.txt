@@ -1,0 +1,6 @@
+Vzkaz z webu:
+{{ form.message.data }}
+
+{{ form.name.data }} {{ form.surname.data }}
+Tel.: {{ form.telephone.data }}
+Mail: {{ form.email.data }}

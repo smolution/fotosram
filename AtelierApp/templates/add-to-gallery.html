@@ -1,0 +1,86 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'flash.html' %}
+
+{% if not photos_forms %}
+<div class="center">
+    Žádné nové fotografie nejsou k dispozici.
+</div>
+{% endif %}
+{% for p, f in photos_forms %}
+<div class="well">
+    <form class="form-horizontal" method="post" name="add_photos">
+        {{f.hidden_tag()}}
+        <fieldset>
+            <legend>{{p}}</legend>
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="{{url_for('static', filename='photo/thumb/')}}{{p}}" />
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <label class="col-lg-4">
+                            Category:
+                        </label>
+                        <div class="col-lg-8">
+                            {{f.category(class="form-control")}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-4">
+                            Subcategory:
+                        </label>
+                        <div class="col-lg-8">
+                            {{f.subcategory(class="form-control")}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-4">
+                            Collection:
+                        </label>
+                        <div class="col-lg-8">
+                            {{f.collection(class="form-control")}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="checkbox">
+                                <label>
+                                    {{f.featured}} Featured
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="checkbox">
+                                <label>
+                                    {{f.slideshow}} Slideshow
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="checkbox">
+                                <label>
+                                    {{f.active}} Active
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4">
+                                <input class="btn btn-default btn-sm" type="submit" value="Uložit fotku">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{% endfor %}
+{% endblock %}

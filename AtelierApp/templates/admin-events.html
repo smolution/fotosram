@@ -1,0 +1,42 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'flash.html' %}
+
+
+<table class="table table-hover">
+    <thead>
+    <th>ID</th>
+    <th>Datum</th>
+    <th>Název</th>
+    <th>Místo</th>
+    <th>Čas</th>
+    <th>Kapacita</th>
+    <th>Volno</th>
+    <th>Aktivní</th>
+    <th></th>
+    </thead>
+    <tbody>
+        {% for e in events %}
+        {% if e.active %}
+        <tr>
+            {% else %}
+        <tr class='active'>
+            {% endif %}
+            <td>{{e.id}}</td>
+            <td>{{e.date}}</td>
+            <td><span title="{{e.description}}">{{e.name}}</span></td>
+            <td>{{e.location}}</td>
+            <td>{{e.time}}</td>
+            <td>{{e.capacity}}</td>
+            <td>{{e.free}}</td>
+            <td>{{e.active}}</td>
+            <td><a href="{{ url_for('edit_event', id=e.id) }}">Editovat</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

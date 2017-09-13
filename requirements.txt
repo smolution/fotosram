@@ -1,0 +1,14 @@
+Flask<1
+flask-login
+flask-mail
+flask-sqlalchemy
+sqlalchemy-migrate
+sqlalchemy-utils
+flask-whooshalchemy
+flask-wtf
+flipflop
+coverage
+flask-debugtoolbar
+wtforms-sqlalchemy
+wtforms-components
+unidecode

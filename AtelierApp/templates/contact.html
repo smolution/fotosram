@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+
+
+    <h2>{{ title }}</h2>
+
+    <address>
+        Jana Šrámková<br />
+        Adresa 666<br />
+        <abbr title="Telefon">Tel:</abbr>
+        +420 123 456 789
+    </address>
+
+    <address>
+        <strong>Email:</strong>   <a class="text-secondary" href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Něco dalšího:</strong> <a class="text-secondary" href="mailto:pipa@example.com">pípa@example.com</a>
+    </address>
+
+    {% include "contact-form.html" %}
+</div>
+{% endblock %}

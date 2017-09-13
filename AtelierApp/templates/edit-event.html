@@ -1,0 +1,81 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'flash.html' %}
+
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
+
+<div class="well">
+    <form class="form-horizontal" action="" method="post" name="add-event">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Editace události</legend>
+            <div class="form-group">
+                {{form.name.label(class="col-sm-2 control-label")}}
+                <div class="col-sm-5">{{ form.name(class="form-control", placeholder=form.name.description) }}</div>
+                {% for error in form.name.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{form.description.label(class="col-sm-2 control-label")}}
+                <div class="col-sm-8">{{ form.description(class="form-control", placeholder=form.description.description) }}</div>
+                {% for error in form.description.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{form.location.label(class="col-sm-2 control-label")}}
+                <div class="col-sm-8">{{ form.location(class="form-control", placeholder=form.location.description) }}</div>
+                {% for error in form.location.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{form.date.label(class="col-sm-2 control-label")}}
+                <div class="col-sm-5">{{ form.date(class="form-control datepicker", placeholder=form.date.description) }}</div>
+                {% for error in form.date.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{form.time.label(class="col-sm-2 control-label")}}
+                <div class="col-sm-5">{{ form.time(class="form-control", placeholder=form.time.description) }}</div>
+                {% for error in form.time.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{form.capacity.label(class="col-sm-2 control-label")}}
+                <div class="col-sm-2">{{ form.capacity(class="form-control", placeholder=form.capacity.description) }}</div>
+                {% for error in form.capacity.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{form.active.label(class="col-sm-2 control-label")}}
+                <div class="col-sm-2">{{ form.active(class="form-control", placeholder=form.active.description) }}</div>
+                {% for error in form.active.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <input class="btn btn-light" type="submit" value="Odeslat">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}

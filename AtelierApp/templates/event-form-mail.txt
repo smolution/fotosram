@@ -1,0 +1,12 @@
+Pøihlášení na focení - {{event.name}}
+Kdy: {{event.date}}
+Kde: {{event.time}}
+Popis akce: {{event.description}}
+
+Kontaktní údaje:
+{{ form.name.data }} {{ form.surname.data }}
+Tel.: {{ form.telephone.data }}
+Mail: {{ form.email.data }}
+Váš vzkaz fotografce: {{ form.message.data }}
+
+Brzy se Vám ozveme s dalšími instrukcemi.

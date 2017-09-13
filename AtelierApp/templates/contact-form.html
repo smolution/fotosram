@@ -1,0 +1,57 @@
+﻿{% block content %}
+
+{% include 'flash.html' %}
+
+<div class="well">
+
+    <form class="form-horizontal" action="" method="post" name="contact-form">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Kontaktní formulář</legend>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="email">Email:</label>
+                <div class="col-sm-5">{{ form.email(class="form-control", placeholder="Email") }}</div>
+                {% for error in form.email.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="name">Jméno:</label>
+                <div class="col-sm-5">{{ form.name(class="form-control", placeholder="Jméno") }}</div>
+                {% for error in form.name.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="surname">Příjmení:</label>
+                <div class="col-sm-5">{{ form.surname(class="form-control", placeholder="Příjmení") }}</div>
+                {% for error in form.surname.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="telephone">Telefon:</label>
+                <div class="col-sm-5">{{ form.telephone(class="form-control", placeholder="Telefon") }}</div>
+                {% for error in form.telephone.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="message">Vaše zpráva:</label>
+                <div class="col-sm-8">{{ form.message(class="form-control", placeholder="Napište nám") }}</div>
+                {% for error in form.message.errors %}
+                <span class="text-error">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <input class="btn btn-light" type="submit" value="Odeslat">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+{% endblock %}

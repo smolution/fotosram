@@ -1,0 +1,42 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'flash.html' %}
+
+
+<table class="table table-hover">
+    <thead>
+        <th>ID</th>
+        <th>Název fotky</th>
+        <th>Kategorie</th>
+        <th>Podkategorie</th>
+        <th>Kolekce</th>
+        <th>Slideshow</th>
+        <th>Zdůrazněno</th>
+        <th>Aktivní</th>
+        <th>Edit</th>
+    </thead>
+    <tbody>
+        {% for p in photos %}
+        {% if p.active %}
+        <tr>
+        {% else %}
+        <tr class='active'>
+        {% endif %}
+            <td>{{p.id}}</td>
+            <td><span title="{{p.filepath}}">{{p.filename}}</span></td>
+            <td>{{p.category}}</td>
+            <td>{{p.subcategory}}</td>
+            <td>{{p.collection}}</td>
+            <td>{{p.slideshow}}</td>
+            <td>{{p.featured}}</td>
+            <td>{{p.active}}</td>
+            <td><a href="{{ url_for('edit_photo', id=p.id) }}">Editovat</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>
+
+{% endblock %}

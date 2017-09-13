@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Přihlášení na focení - {{event.name}}</title>
+</head>
+<body>
+    <h3>Přihlášení na focení - {{event.name}}</h3>
+    <p>
+        Kdy: {{event.date}}<br />
+        Kdy: {{event.date}}<br />
+        Popis akce: {{event.description}}
+    </p>
+    <p>
+        <h4>Kontaktní údaje:</h4>
+        {{ form.name.data }} {{ form.surname.data }}<br />
+        <b>Tel.:</b> {{ form.telephone.data }}<br />
+        <b>Mail:</b> {{ form.email.data }}
+    </p>
+    <p>
+        Váš vzkaz fotografce: {{ form.message.data }}
+    </p>
+    <h3>Brzy se Vám ozveme s dalšími instrukcemi.</h3>
+</body>
+</html>
