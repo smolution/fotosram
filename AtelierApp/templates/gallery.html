@@ -21,7 +21,7 @@
         {% if p.featured %}
         <div class="col-12 my-3">
             <a href="{{url_for('static', filename='photo/full/')}}{{p.filename}}" data-lightbox="lightbox">
-                <img class="img-fluid" src="{{url_for('static', filename='photo/thumb/featured/')}}{{p.filename}}" />
+                <img class="img-fluid" src="{{url_for('static', filename='photo/featured/')}}{{p.filename}}" />
             </a>
         </div>
         {% else %}
